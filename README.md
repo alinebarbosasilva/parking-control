@@ -18,17 +18,16 @@ O valor da hora adicional possui uma tolerância de 10 minutos para cada 1 hora.
 
 Utilizado a placa do veículo como chave de busca. 
 
- [Angular CLI](https://github.com/angular/angular-cli) version 17.3.7.
+## Pré-requisitos
 
-## Servidor de desenvolvimento
+Antes de começar, certifique-se de ter o Node.js e o Angular CLI instalados em sua máquina.
 
-Execute `ng serve` para um servidor de desenvolvimento. Navegue até `http://localhost:4200/`. O aplicativo será recarregado automaticamente se você alterar qualquer um dos arquivos de origem.
+- Node.js: https://nodejs.org/  --- (Versão minima 18.13) compatível com Angular 17.3.7
+- Angular CLI: `npm install -g @angular/cli`
 
-## Estrutura de código
+## Instalação
 
-Execute `ng generate component component-name` para gerar um novo componente. Você também pode usar `ng generate Directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Execute `ng build` para construir o projeto. Os artefatos de construção serão armazenados no diretório `dist/`.
-
+1. Clone o repositório: `git clone [https://github.com/alinebarbosasilva/parking-control-web.git]`
+2. Navegue até o diretório do projeto: `cd parking-control-web`
+3. Instale as dependências: `npm install`
+4. Execute npm start no terminal
