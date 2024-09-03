@@ -15,7 +15,7 @@
   <mat-card-content>
 
     @if ((priceTables$ | async)?.length) {
-      <mat-table [dataSource]="priceTables$" class="mat-elevation-z8">
+      <mat-table ngSkipHydration [dataSource]="priceTables$" class="mat-elevation-z8">
 
         <ng-container matColumnDef="validityStartPeriod">
           <th mat-header-cell *matHeaderCellDef> Data inicial da vigência</th>

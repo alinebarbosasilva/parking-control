@@ -49,7 +49,7 @@
 
 
     @if ((parkingRegistrations$ | async)?.length) {
-      <mat-table [dataSource]="parkingRegistrations$" class="mat-elevation-z8">
+      <mat-table ngSkipHydration [dataSource]="parkingRegistrations$" class="mat-elevation-z8">
 
         <ng-container matColumnDef="plate">
           <th mat-header-cell *matHeaderCellDef> Placa</th>
