@@ -27,7 +27,7 @@ Antes de começar, certifique-se de ter o Node.js e o Angular CLI instalados em 
 
 ## Instalação
 
-1. Clone o repositório: `git clone [https://github.com/alinebarbosasilva/parking-control-web.git]`
+1. Clone o repositório: `git clone https://github.com/alinebarbosasilva/parking-control-web.git`
 2. Navegue até o diretório do projeto: `cd parking-control-web`
 3. Instale as dependências: `npm install`
 4. Execute npm start no terminal
