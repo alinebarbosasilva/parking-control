@@ -1,10 +1,7 @@
-export interface ParkingRegistration {
+export interface PriceTable {
     id: string;
-    checkInDate: string;
-    checkOutDate: string;
-    plate: string;
-    durationInSeconds: number;
-    price: number;
-    priceToPay: number;
-
+    validityStartPeriod: string;
+    validityFinalPeriod: string;
+    initialHourValue: number;
+    additionalHourlyValue: number;
 }

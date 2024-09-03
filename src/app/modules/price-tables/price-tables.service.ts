@@ -1,18 +1,34 @@
 import {inject, Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../../environments/environment";
-import {ParkingRegistration} from "../../models/parking-registration";
+import {PriceTable} from "../../models/price-table";
 
 @Injectable({
   providedIn: 'root'
 })
-export class ParkingRegistrationsService {
+export class PriceTablesService {
   http = inject(HttpClient);
 
-  url = `${environment.api}/parking-registrations`;
+  private readonly url = `${environment.api}/prices`;
 
-  getParkingRegistrations(){
-    return this.http.get<ParkingRegistration[]>(this.url);
+  getPriceTables() {
+    return this.http.get<PriceTable[]>(this.url);
+  }
+
+  create(form: any) {
+    return this.http.post(this.url, form)
+  }
+
+  single(id: string) {
+    return this.http.get(`${this.url}/${id}`)
+  }
+
+  update(id: string, form: any) {
+    return this.http.patch(`${this.url}/${id}`, form)
+  }
+
+  delete(id: string) {
+    return this.http.delete(`${this.url}/${id}`)
   }
 
 }

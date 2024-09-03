@@ -1,1 +1,56 @@
-<p>price-tables-create works!</p>
+<div class="container">
+<div mat-dialog-title>
+  <h1>Adicionar tabela de preços</h1>
+</div>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+<div mat-dialog-content class="content">
+  <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Valor da hora inicial</mat-label>
+        <input matInput type="number" placeholder="Informe o valor da hora inicial" formControlName="initialHourValue">
+        <mat-error *ngIf="form.get('initialHourValue')?.invalid && form.get('initialHourValue')?.touched">
+          Valor da hora inicial é obrigatório.
+        </mat-error>
+      </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Valor da hora adicional</mat-label>
+      <input matInput type="number" placeholder="Informe o valor da hora adicional" formControlName="additionalHourlyValue">
+      <mat-error *ngIf="form.get('additionalHourlyValue')?.invalid && form.get('additionalHourlyValue')?.touched">
+        Valor da hora adicional é obrigatório.
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+  <div class="row">
+    <mat-form-field  appearance="outline">
+      <mat-label>Data inicial da vigência</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="validityStartPeriod">
+      <mat-error class="mat-error-date" *ngIf="form.get('validityStartPeriod')?.invalid && form.get('validityStartPeriod')?.touched">
+        Data inicial da vigência é obrigatório.
+      </mat-error>
+      <mat-hint>DD/MM/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field  appearance="outline">
+      <mat-label>Data final da vigência</mat-label>
+      <input matInput [matDatepicker]="picker2" formControlName="validityFinalPeriod">
+      <mat-error class="mat-error-date" *ngIf="form.get('validityFinalPeriod')?.invalid && form.get('validityFinalPeriod')?.touched">
+        Data final da vigência é obrigatório.
+      </mat-error>
+      <mat-hint>DD/MM/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+      <mat-datepicker #picker2></mat-datepicker>
+    </mat-form-field>
+  </div>
+</div>
+<div mat-dialog-actions class="action">
+  <button mat-raised-button (click)="back()">Cancelar</button>
+  <button mat-raised-button color="primary" type="submit"
+  [disabled]="form.invalid">Adicionar</button>
+</div>
+</form>
+</div>

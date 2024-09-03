@@ -1,35 +1,20 @@
 import {inject, Injectable} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {environment} from "../../../environments/environment";
-import {ParkingRegistration} from "../../models/parking-registration";
 import {PriceTable} from "../../models/price-table";
+import {BehaviorSubject} from "rxjs";
+import {PriceTablesService} from "./price-tables.service";
 
 @Injectable({
   providedIn: 'root'
 })
-export class PriceTablesService {
-  http = inject(HttpClient);
+export class PriceTablesRepositoryService {
+  service = inject(PriceTablesService)
+  priceTables$ = new BehaviorSubject<PriceTable[]>([])
 
-  private readonly url = `${environment.api}/prices`;
-
-  getPriceTables(){
-    return this.http.get<PriceTable[]>(this.url);
+  reload() {
+    this.service.getPriceTables().subscribe((resp) => {
+      this.priceTables$.next(resp)
+    })
   }
 
-  create(form: any){
-    return this.http.post(this.url, form)
-  }
-
-  single(id: number){
-    return this.http.get(`${this.url}/${id}`)
-  }
-
-  update(id: number, form: any){
-    return this.http.patch(`${this.url}/${id}`, form)
-  }
-
-  delete(id: number){
-    return this.http.delete(`${this.url}/${id}`)
-  }
 
 }

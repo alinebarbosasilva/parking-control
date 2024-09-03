@@ -1,15 +1,11 @@
-import { Routes } from '@angular/router';
-import {ParkingRegistrationsComponent} from "./modules/parking-registrations/parking-registrations.component";
+import {Route} from '@angular/router';
+import {PriceTablesComponent} from "./price-tables.component";
+import {PriceTablesCreateComponent} from "./create/price-tables-create.component";
+import {PriceTablesUpdateComponent} from "./update/price-tables-update.component";
 
-export const routes: Routes = [
-  {
-    path: 'prices',
-    loadChildren: () => import('./modules/prices/prices-routes'),
-  },
-  {
-    path: '**', pathMatch: 'full', redirectTo: 'parking-registrations',
-  },
-  {
-    path: 'parking-registrations', component: ParkingRegistrationsComponent,
-  }
-];
+export default [
+  {path: '', component: PriceTablesComponent},
+  {path: 'new', component: PriceTablesCreateComponent},
+  {path: 'update', component: PriceTablesUpdateComponent},
+
+] satisfies Route[]
