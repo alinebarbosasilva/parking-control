@@ -1,0 +1,5 @@
+<ul>
+  @for (element of parkingRegistrations$ | async; track element.id){
+    <li >{{element}}</li>
+  }
+</ul>
